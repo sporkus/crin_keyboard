@@ -15,11 +15,11 @@ https://github.com/cBachoo/bachooKeyboardFiles/tree/master/Crin/CrinPlateFiles
 ![](./documentation/layout.png)
 
 #### PCB renders
-![](./documentation/-top.jpg)
-![](./documentation/-bottom.jpg)
+![](<./documentation/crin custom layout-top.jpg>)
+![](<./documentation/crin custom layout-bottom.jpg>)
 
-#### BoM
-[interactive BoM](./documentation/-ibom.html)
+#### Interactive BoM
+download this [html](<./documentation/crin custom layout-ibom.html>) and run locally
 
 #### Schematic
-[Schematic pdf](./documentation/-schematic.pdf)
+[pdf](<./documentation/crin custom layout-schematic.pdf>)
