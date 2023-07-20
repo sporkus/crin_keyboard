@@ -1,0 +1,37 @@
+name: "KiCad CI/CD"
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**.kicad_sch'
+      - '**.kicad_pcb'
+      - '**.kibot.yaml'
+      - '.github/workflows/kibot.yml'
+  pull_request:
+    paths:
+      - '**.kicad_sch'
+      - '**.kicad_pcb'
+      - '**.kibot.yaml'
+      - '.github/workflows/kibot.yml'
+
+jobs:
+  kibot:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: generate PCB documentation
+      uses: INTI-CMNB/KiBot@v2_k7
+      with:
+        config: kicad/pcb/config.kibot.yaml
+        dir: 'documentation'
+        schema: 'kicad/pcb/crin custom layout.kicad_sch'
+        board: 'kicad/pcb/crin custom layout.kicad_pcb'
+        verbose: 0
+      continue-on-error: true
+
+    - uses: EndBug/add-and-commit@v9
+      with:
+        add: 'plate documentation'
+        message: '[kibot]'
